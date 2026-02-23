@@ -1,15 +1,25 @@
-
 // ── dashboard.js ──────────────────────────────────────────────────
 
 async function loadEmployees() {
   const tbody = document.getElementById("employeeBody");
   const errEl = document.getElementById("errorMsg");
 
-  // Set nav user
-  const user = getCurrentUser();
-  const navUser = document.getElementById("navUser");
-  if (navUser) navUser.textContent = `${user.name} (${user.role})`;
+  // Init Auth0 — this will redirect to login if not authenticated
+  const isAuthenticated = await initAuth0();
 
+  // If initAuth0 triggered a redirect, stop here
+  if (!isAuthenticated) return;
+
+  // Set nav user from real Auth0 identity
+  try {
+    const user = await getCurrentUser();
+    const navUser = document.getElementById("navUser");
+    if (navUser) navUser.textContent = `${user.name} (${user.role})`;
+  } catch (e) {
+    console.error("Could not get user:", e);
+  }
+
+  // Fetch employees with JWT attached
   try {
     const employees = await apiFetch("/employees/");
     tbody.innerHTML = "";
@@ -38,8 +48,6 @@ async function loadEmployees() {
 }
 
 async function viewSensitive(empId) {
-  // Phase 3: will check role
-  // Phase 4: will trigger Auth0 step-up MFA if acr != 'mfa'
   try {
     const data = await apiFetch(`/employees/${empId}/sensitive`);
     alert(`Salary: $${Number(data.salary).toLocaleString()}\nNational ID: ${data.national_id}`);
@@ -48,5 +56,4 @@ async function viewSensitive(empId) {
   }
 }
 
-// Kick off on page load
 loadEmployees();

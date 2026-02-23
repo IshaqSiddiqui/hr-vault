@@ -12,16 +12,14 @@
     <div class="logo">🔐</div>
     <h1>HR Vault</h1>
     <p class="subtitle">Secure Employee Management</p>
-
-    <!-- Phase 2: this button will trigger Auth0 Universal Login -->
     <button class="btn btn-primary" id="loginBtn">Sign In</button>
-
-    <p class="phase-note">
-      Phase 1 — Auth0 login coming in Phase 2.<br/>
-      <a href="dashboard.html">Enter dashboard →</a>
-    </p>
   </div>
 
+  <!-- Auth0 SPA SDK -->
+  <script src="js/auth0-spa-js.min.js"></script>
   <script src="js/auth.js"></script>
+  <script>
+    initAuth0();
+  </script>
 </body>
 </html>
