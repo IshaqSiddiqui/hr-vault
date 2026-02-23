@@ -1,0 +1,162 @@
+/* ── Reset & Base ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #0f1117;
+  --surface:  #1a1d27;
+  --border:   #2a2d3a;
+  --primary:  #6366f1;
+  --primary-h:#818cf8;
+  --text:     #e2e8f0;
+  --muted:    #64748b;
+  --danger:   #ef4444;
+  --success:  #22c55e;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Login page ───────────────────────────────────────── */
+.center-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 48px 40px;
+  width: 360px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+.logo { font-size: 2.5rem; margin-bottom: 12px; }
+
+h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 6px; }
+
+.subtitle { color: var(--muted); margin-bottom: 32px; }
+
+/* ── Buttons ──────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+.btn:hover  { opacity: 0.88; }
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.btn-sm {
+  padding: 4px 12px;
+  font-size: 0.82rem;
+  background: var(--border);
+  color: var(--text);
+  border-radius: 6px;
+}
+
+/* ── Navbar ───────────────────────────────────────────── */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 32px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-weight: 700; font-size: 1.1rem; }
+.nav-user { color: var(--muted); font-size: 0.9rem; }
+
+/* ── Layout ───────────────────────────────────────────── */
+.container {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+h2 { font-size: 1.4rem; margin-bottom: 8px; }
+
+/* ── Table ────────────────────────────────────────────── */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: var(--surface);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.table tr:last-child td { border-bottom: none; }
+.table tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+.loading { color: var(--muted); text-align: center; padding: 32px !important; }
+
+/* ── Badges ───────────────────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.badge-admin      { background: #312e81; color: #a5b4fc; }
+.badge-hr_manager { background: #14532d; color: #86efac; }
+.badge-employee   { background: #1e3a5f; color: #93c5fd; }
+.badge-auditor    { background: #451a03; color: #fcd34d; }
+
+/* ── Misc ─────────────────────────────────────────────── */
+.phase-note {
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-top: 16px;
+}
+.phase-note a { color: var(--primary-h); text-decoration: none; }
+
+.error {
+  background: rgba(239,68,68,0.1);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.hidden { display: none; }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }

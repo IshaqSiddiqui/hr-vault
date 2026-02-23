@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HR Vault — Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <span class="nav-logo">🔐 HR Vault</span>
+    <span class="nav-user" id="navUser">Guest</span>
+  </nav>
+
+  <main class="container">
+    <h2>Employees</h2>
+    <p class="phase-note">Phase 1 — viewing public fields. Role-based filtering in Phase 3.</p>
+
+    <div id="errorMsg" class="error hidden"></div>
+
+    <table class="table" id="employeeTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="employeeBody">
+        <tr><td colspan="6" class="loading">Loading...</td></tr>
+      </tbody>
+    </table>
+  </main>
+ <script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
